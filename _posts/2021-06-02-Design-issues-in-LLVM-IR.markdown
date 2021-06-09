@@ -92,7 +92,7 @@ Bitcasts are LLVMs way of representing a cast that reinterprets a value in diffe
 
 Pointer type conversions are pervasive and often occur when data goes through different layers. A pointer may start out as `[8 x i32]*` when representing a specific object of known size, then become `[0 x i32]*` when interpreted as a slice, then `i8*` when passed to a `memcpy` as a generic pointer.
 
-Thankfully, LLVM is in the process of removing pointer element types and switching to [opaque pointers](https://llvm.org/docs/OpaquePointers.html). With opaque pointers, the above code would like this:
+Thankfully, LLVM is in the process of removing pointer element types and switching to [opaque pointers](https://llvm.org/docs/OpaquePointers.html). With opaque pointers, the above code would look like this:
 
 ```llvm
 define void @copy.ptr(ptr %dst, ptr %src) {
